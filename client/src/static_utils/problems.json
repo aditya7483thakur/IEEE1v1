@@ -1,0 +1,118 @@
+[
+  {
+    "id": 1,
+    "round_id": 1,
+    "title": "Problem 1",
+    "description": "How do you print 'Hello, World!' in JavaScript?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "option_id": "a",
+        "code": "console.log('Hello, World!');",
+        "is_correct": true
+      },
+      {
+        "option_id": "b",
+        "code": "print('Hello, World!');",
+        "is_correct": false
+      },
+      {
+        "option_id": "c",
+        "code": "System.out.println('Hello, World!');",
+        "is_correct": false
+      },
+      {
+        "option_id": "d",
+        "code": "echo 'Hello, World!';",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "round_id": 1,
+    "title": "Problem 2",
+    "description": "What is the output of the following code snippet?\n\n```javascript\nlet x = 5;\nlet y = 10;\nlet z = x + y;\nconsole.log(z);\n```",
+    "difficulty": "easy",
+    "options": [
+      {
+        "option_id": "a",
+        "code": "15",
+        "is_correct": true
+      },
+      {
+        "option_id": "b",
+        "code": "510",
+        "is_correct": false
+      },
+      {
+        "option_id": "c",
+        "code": "5 + 10",
+        "is_correct": false
+      },
+      {
+        "option_id": "d",
+        "code": "undefined",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "round_id": 1,
+    "title": "Problem 3",
+    "description": "What is the output of the following code snippet?\n\n```javascript\nlet x = 5;\nlet y = 10;\nlet z = x + y;\nconsole.log(x + y);\n```",
+    "difficulty": "easy",
+    "options": [
+      {
+        "option_id": "a",
+        "code": "15",
+        "is_correct": true
+      },
+      {
+        "option_id": "b",
+        "code": "510",
+        "is_correct": false
+      },
+      {
+        "option_id": "c",
+        "code": "5 + 10",
+        "is_correct": false
+      },
+      {
+        "option_id": "d",
+        "code": "undefined",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "round_id": 1,
+    "title": "Problem 4",
+    "description": "What is the output of the following code snippet?\n\n```javascript\nlet x = 5;\nlet y = 10;\nlet z = x + y;\nconsole.log(x, y);\n```",
+    "difficulty": "easy",
+    "options": [
+      {
+        "option_id": "a",
+        "code": "5 10",
+        "is_correct": true
+      },
+      {
+        "option_id": "b",
+        "code": "510",
+        "is_correct": false
+      },
+      {
+        "option_id": "c",
+        "code": "5 + 10",
+        "is_correct": false
+      },
+      {
+        "option_id": "d",
+        "code": "undefined",
+        "is_correct": false
+      }
+    ]
+  }
+]
