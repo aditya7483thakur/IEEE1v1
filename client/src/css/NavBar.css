@@ -10,7 +10,7 @@
   background-color: transparent;
   position: absolute;
   width: 100vw;
-  background-color: white;
+  background-color: black;
 }
 
 .navbar-items {
@@ -28,7 +28,7 @@
   font-family: "Manrope", sans-serif;
   font-size: 15px;
   font-weight: bold;
-  color: black;
+  color: white;
   padding: 12px 10px;
   transition: 0.3s;
 
