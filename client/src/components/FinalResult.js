@@ -110,19 +110,20 @@ const FinalResult = () => {
       alignItems: "center",
       justifyContent: "center",
       minHeight: "94.5vh",
-      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-      color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
+      // background: "linear-gradient(135deg, #2980b9, #2c3e50)",
+      background: "linear-gradient(to bottom, #FFFFFF 0%, #999999 100%, #FFFFFF 100%)",
+      color: "black",
+      fontFamily: "'Poppins'",
       padding: "20px",
       textAlign: "center"
     }}>
       {matchResults && (
-        <h1 style={{ marginTop: "5rem", fontSize:"40px",fontFamily: "Arial, sans-serif", textAlign: "center", color: "white" }}>
+        <h1 style={{ marginTop: "4rem", fontSize:"40px",fontFamily: "'Poppins'", textAlign: "center", color: "black" }}>
         Congratulations to{" "}
         {matchResults
           .filter(match => match[2] !== 'Bot') // Filter out 'Bot' winners
           .map((match, index) => (
-            <span key={index} style={{ fontSize:"40px", fontWeight: "bold", color: "#FFA500" }}>
+            <span key={index} style={{ fontSize:"40px", fontWeight: "bold", color: "#A020F0" }}>
               {match[2]}
               {index !== matchResults.length - 1 ? (
                 index === matchResults.length - 2 ? " and " : ", "
@@ -156,7 +157,7 @@ const FinalResult = () => {
         </table>
       </div>
       {isAdmin && isAdmin ? (
-        <div style={{position:"absloute",marginTop: "15rem"
+        <div style={{position:"absloute",marginTop: "5rem"
           }}
           >
           <button style={{
@@ -166,7 +167,7 @@ const FinalResult = () => {
             fontWeight: "bold",
             textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
             padding: "1rem",
-            backgroundColor: "#e74c3c", // Red color
+            backgroundColor: "#000", // Red color
             border: "none",
             borderRadius: "10px",
             cursor: "pointer",
@@ -175,16 +176,16 @@ const FinalResult = () => {
             display: "inline-block",
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#c0392b"; // Darker shade of red on hover
+            e.target.style.backgroundColor = "#000"; // Darker shade of red on hover
             e.target.style.transform = "scale(1.05)";
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = "#e74c3c";
+            e.target.style.backgroundColor = "#000";
             e.target.style.transform = "scale(1)";
           }} onClick={endTournament}>End Tournament</button>
           </div>
       ) : (
-        <div style={{position:"absloute",marginTop: "15rem"
+        <div style={{position:"absloute",marginTop: "5rem"
         }}
         >
         <button style={{
@@ -194,7 +195,7 @@ const FinalResult = () => {
           fontWeight: "bold",
           textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
           padding: "1rem",
-          backgroundColor: "#e74c3c", // Red color
+          backgroundColor: "#000", // Red color
           border: "none",
           borderRadius: "10px",
           cursor: "pointer",
@@ -203,11 +204,11 @@ const FinalResult = () => {
           display: "inline-block",
         }}
         onMouseEnter={(e) => {
-          e.target.style.backgroundColor = "#c0392b"; // Darker shade of red on hover
+          e.target.style.backgroundColor = "#000"; // Darker shade of red on hover
           e.target.style.transform = "scale(1.05)";
         }}
         onMouseLeave={(e) => {
-          e.target.style.backgroundColor = "#e74c3c";
+          e.target.style.backgroundColor = "#000";
           e.target.style.transform = "scale(1)";
         }} onClick={leaveTournament}>Leave Tournament</button>
         </div>
