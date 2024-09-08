@@ -23,108 +23,126 @@ const Home = () => {
   };
 
   return (
-    <div style={{ 
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100vh",
-      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-      color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
-    }}>
-      {user && <h1 style={{ 
-        fontSize: "3rem",
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: "2rem",
-        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)"
-      }}>Welcome, {user.name}!</h1>}{" "}
-
-      <div
+    <div
       style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        background:
+        "linear-gradient(to bottom, #FFFFFF 0%, #999999 100%, #FFFFFF 100%)",
+        color: "#fff",
       }}
-      >
-      <Link to="/create-room" style={{ 
-        textDecoration: "none",
-        color: "#fff", /* Change text color to white */
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-        textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
-        padding: "1rem",
-        backgroundColor: "#16a085",
-        border: "none",
-        borderRadius: "10px",
-        cursor: "pointer",
-        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-        transition: "background-color 0.3s ease, transform 0.2s ease",
-        display: "inline-block",
-        marginBottom: "5rem",
-        marginRight: "20rem",
-        marginTop: "5rem"
-      }} onMouseEnter={(e) => {
-        e.target.style.backgroundColor = "#1abc9c";
-        e.target.style.transform = "scale(1.05)";
-      }}
-        onMouseLeave={(e) => {
-          e.target.style.backgroundColor = "#16a085";
-          e.target.style.transform = "scale(1)";
-        }}>Create Room</Link>
-
-        <Link to="/join-room" style={{ 
-          textDecoration: "none",
-          color: "#fff", /* Change text color to white */
-          fontSize: "1.5rem",
-          fontWeight: "bold",
-          textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
-          padding: "1rem",
-          backgroundColor: "#16a085",
-          border: "none",
-          borderRadius: "10px",
-          cursor: "pointer",
-          boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-          transition: "background-color 0.3s ease, transform 0.2s ease",
-          display: "inline-block",
-        }} onMouseEnter={(e) => {
-          e.target.style.backgroundColor = "#1abc9c";
-          e.target.style.transform = "scale(1.05)";
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.backgroundColor = "#16a085";
-          e.target.style.transform = "scale(1)";
-        }}>Join Room</Link>
-      </div>
-      <div>
-        <button
-          onClick={handleLogout}
+    >
+      {user && (
+        <h1
           style={{
-            marginTop: "10rem",
-            padding: "1rem",
-            backgroundColor: "#e74c3c", // Red color
-            color: "#fff",
+            fontFamily: "'Lexend', system-ui",
+            fontSize: "2.75rem",
+            color: "black",
+            fontWeight: "700",
+            textAlign: "center",
+            marginTop: "2rem",
+          }}
+        >
+          Welcome, {user.name}!
+        </h1>
+      )}
+
+      <div style={{}}>
+        <Link
+          to="/create-room"
+          style={{
+            fontFamily: "'Manrope', sans-serif",
+            textDecoration: "none",
+            color: "#fff" /* Change text color to white */,
+            fontSize: "18px",
+            padding: "12px 45.5px 12px 45.5px",
+            backgroundColor: "#6D31ED",
             border: "none",
-            borderRadius: "10px",
+            borderRadius: "6px",
             cursor: "pointer",
-            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
+            // boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
             transition: "background-color 0.3s ease, transform 0.2s ease",
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
+            display: "inline-block",
+            marginBottom: "5rem",
+            marginRight: "5rem",
+            marginTop: "2.5rem",
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#c0392b"; // Darker shade of red on hover
+            e.target.style.backgroundColor = "#6D31ED";
             e.target.style.transform = "scale(1.05)";
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = "#e74c3c";
+            e.target.style.backgroundColor = "#6D31ED";
+            e.target.style.transform = "scale(1)";
+          }}
+        >
+          Create Room
+        </Link>
+
+        <Link
+          to="/join-room"
+          style={{
+            textDecoration: "none",
+            color: "#6D31ED" /* Change text color to white */,
+            fontSize: "18px",
+            padding: "12px 57.5px 12px 57.5px",
+            backgroundColor: "#F5F1FE",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
+            // boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
+            transition: "background-color 0.3s ease, transform 0.2s ease",
+            display: "inline-block",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#F5F1FE";
+            e.target.style.transform = "scale(1.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#F5F1FE";
+            e.target.style.transform = "scale(1)";
+          }}
+        >
+          Join Room
+        </Link>
+      </div>
+      {/* <div>
+        <button
+          onClick={handleLogout}
+          style={{
+            fontFamily: "'Manrope', sans-serif",
+            fontSize: "14px",
+            marginTop: "10rem",
+            height: "36px",
+            width: "160px",
+            padding: "0 12px 0 12px",
+            backgroundColor: "#6D31ED", // Purple Color
+            color: "#fff",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            // boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
+            transition: "background-color 0.3s ease, transform 0.2s ease",
+            // fontSize: "1.2rem",
+            // fontWeight: "bold",
+            // textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#6D31ED"; // Darker shade of red on hover
+            e.target.style.transform = "scale(1.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#6D31ED";
             e.target.style.transform = "scale(1)";
           }}
         >
           Logout
         </button>
-      </div>
-
-    </div>    
+      </div> */}
+    </div>
   );
 };
 
