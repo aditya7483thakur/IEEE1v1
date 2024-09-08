@@ -34,16 +34,6 @@ function Problem({ problemId }) {
         boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
       }}
     >
-      <center
-        style={{
-          fontSize: "40px",
-          fontWeight: "bold",
-          color: "#fff",
-          marginBottom: "20px",
-        }}
-      >
-        Problem
-      </center>
       <div
         style={{ fontSize: "18px", lineHeight: "1.5", color: "#fff" }}
         dangerouslySetInnerHTML={{ __html: decodeEntities(problemStatement) }}
