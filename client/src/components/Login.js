@@ -3,15 +3,15 @@ import axios from "axios";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
+import GoogleLogo from "./Google_Icons.webp";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth(); // Access the login function directly from the AuthContext
-  const navigate = useNavigate(); // Replace useHistory with useNavigate
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user is already logged in
     const isLoggedIn = localStorage.getItem("user");
     if (isLoggedIn) {
       navigate("/home");
@@ -19,81 +19,89 @@ const Login = () => {
   }, [navigate]);
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
     try {
       const response = await axios.post(
         "https://code-1v1-tournament-platform-backend.vercel.app/api/auth/login",
         { email, password }
       );
       const userData = response.data;
-      login(userData); // Set user data in the context
+      login(userData);
       navigate("/home");
     } catch (error) {
       console.error("Error logging in:", error);
       if (error.response.status === 401) {
-        // Invalid email or password
         alert("Invalid email or password!");
       } else {
-        // Other error (e.g., server error)
         alert("An error occurred. Please try again later.");
       }
     }
   };
 
   return (
-    <div style={{ 
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100vh",
-      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-      color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
-    }}>
-      <h1 style={{ 
-        fontSize: "3rem",
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: "2rem",
-        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)"
-      }}>Code 1v1 Tournament Platform</h1>
-      <div style={{ 
-        width: "300px",
-        border: "2px solid #fff",
-        borderRadius: "20px",
-        padding: "30px",
-        boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-        background: "rgba(0, 0, 0, 0.7)",
-      }}>
-        <h2 style={{ 
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        background:
+          "linear-gradient(to bottom, #FFFFFF 0%, #999999 100%, #FFFFFF 100%)",
+        fontFamily: '"Poppins", sans-serif', // Elegant font similar to the one in the image
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "2.5rem",
+          textAlign: "center",
+          marginBottom: "1rem",
+          color: "black",
+        }}
+      >
+        Welcome to Code 1v1 Tournament !
+      </h1>
+      <p
+        style={{
+          fontSize: "1rem",
           textAlign: "center",
           marginBottom: "1.5rem",
-          fontSize: "1.8rem",
-          textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)"
-        }}>Login</h2>
-        <form onSubmit={handleLogin} style={{ 
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}>
+          color: "#555",
+        }}
+      >
+        The faster you fill up, the faster you get a ticket
+      </p>
+      <div
+        style={{
+          width: "350px",
+          borderRadius: "10px",
+          padding: "40px",
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#fff",
+        }}
+      >
+        <form
+          onSubmit={handleLogin}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            style={{ 
+            placeholder="Enter your email"
+            style={{
               width: "100%",
               marginBottom: "1rem",
-              padding: "1rem",
-              border: "none",
-              borderRadius: "10px",
-              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-              textAlign: "center",
+              padding: "0.8rem",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
               fontSize: "1rem",
-              transition: "box-shadow 0.3s ease",
-              background: "rgba(255, 255, 255, 0.1)",
-              color: "#fff",
+              backgroundColor: "#f8f8f8",
+              color: "#333",
             }}
             required
           />
@@ -101,69 +109,85 @@ const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            style={{ 
+            placeholder="********"
+            style={{
               width: "100%",
               marginBottom: "1rem",
-              padding: "1rem",
-              border: "none",
-              borderRadius: "10px",
-              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-              textAlign: "center",
+              padding: "0.8rem",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
               fontSize: "1rem",
-              transition: "box-shadow 0.3s ease",
-              background: "rgba(255, 255, 255, 0.1)",
-              color: "#fff",
+              backgroundColor: "#f8f8f8",
+              color: "#333",
             }}
             required
           />
-          <button 
-            type="submit" 
-            style={{ 
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
               width: "100%",
-              padding: "1rem",
-              backgroundColor: "#16a085",
-              color: "#fff",
-              border: "none",
-              borderRadius: "10px",
-              cursor: "pointer",
-              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-              transition: "background-color 0.3s ease, transform 0.2s ease",
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              position: "relative",
-              overflow: "hidden",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "#1abc9c";
-              e.target.style.transform = "scale(1.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "#16a085";
-              e.target.style.transform = "scale(1)";
+              marginBottom: "1rem",
+              fontSize: "0.9rem",
             }}
           >
-            <span style={{ zIndex: 1 }}>Login</span>
-            <span 
-              style={{ 
-                position: "absolute",
-                top: "-10px",
-                left: "-10px",
-                width: "50px",
-                height: "50px",
-                background: "#fff",
-                borderRadius: "50%",
-                animation: "ripple 1s ease infinite",
-                }}
-              />
+            <label style={{ display: "flex", alignItems: "center" }}>
+              <input type="checkbox" style={{ marginRight: "0.5rem" }} />
+              Remember me
+            </label>
+            <a
+              href="/forgot-password"
+              style={{ color: "#333", textDecoration: "none" }}
+            >
+              Forgot Password
+            </a>
+          </div>
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "0.8rem",
+              backgroundColor: "#000",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              fontSize: "1rem",
+              cursor: "pointer",
+              marginBottom: "1rem",
+            }}
+          >
+            Sign In
+          </button>
+          <button
+            type="button"
+            style={{
+              width: "100%",
+              padding: "0.8rem",
+              backgroundColor: "#fff",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "1rem",
+              color: "#555",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "1rem",
+            }}
+          >
+            <img
+              src={GoogleLogo}
+              alt="Google logo"
+              style={{ width: "20px", marginRight: "0.5rem" }}
+            />
+            Sign In with Google
           </button>
         </form>
-        <p style={{ 
-          marginTop: "1.5rem",
-          textAlign: "center",
-          fontSize: "1rem",
-          }}>
-          Don't have an account? <a href="/signup" style={{ color: "#16a085", textDecoration: "none", fontWeight: "bold" }}>Sign Up</a>
+        <p style={{ textAlign: "center", fontSize: "0.9rem", color: "#555" }}>
+          Don't have an account?{" "}
+          <a href="/signup" style={{ color: "#000", textDecoration: "none" }}>
+            Sign up
+          </a>
         </p>
       </div>
     </div>
