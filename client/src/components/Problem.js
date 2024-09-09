@@ -1,26 +1,7 @@
 import React, { useState, useEffect } from "react";
 import problems from "../static_utils/problems.json";
 
-function Problem({ problemId }) {
-  const [problemStatement, setProblemStatement] = useState("");
-  const apiUrl = `https://judgeapi.u-aizu.ac.jp/resources/descriptions/en/${problemId}`;
-
-  useEffect(() => {
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const htmlContent = data.html;
-        setProblemStatement(htmlContent);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [apiUrl]);
-
-  const decodeEntities = (html) => {
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = html;
-    return textarea.value;
-  };
-
+function Problem({ round_no }) {
   return (
     <div
       style={{
@@ -34,10 +15,6 @@ function Problem({ problemId }) {
         boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
       }}
     >
-      <div
-        style={{ fontSize: "18px", lineHeight: "1.5", color: "#fff" }}
-        dangerouslySetInnerHTML={{ __html: decodeEntities(problemStatement) }}
-      />
       {problems.map((problem) => {
         return (
           <div key={problem.id}>

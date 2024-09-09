@@ -171,7 +171,7 @@ const Round = () => {
       ) : (
         <div style={{ display: "flex", width: "100%" }}>
           <div style={{ flex: 1 }}>
-            <Problem problemId={pID} />
+            <Problem round_no={rnd} />
           </div>
         </div>
       )}
