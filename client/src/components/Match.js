@@ -3,7 +3,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
-import IDE from "./IDE";
 import Problem from "./Problem";
 
 const Round = () => {
@@ -14,7 +13,6 @@ const Round = () => {
   const [gamer, setGamer] = useState("");
   const [opponentName, setOpponentName] = useState("");
   const [rnd, setRnd] = useState(null);
-  const [pID, setPID] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("30");
@@ -49,14 +47,6 @@ const Round = () => {
           setGamer(Players[userIndex]);
           const oppoIndex = userIndex % 2 == 0 ? userIndex + 1 : userIndex - 1;
           setOpponentName(Players[oppoIndex]?.name || "Bot");
-
-          const ID = user.id;
-          const res = await axios.get(
-            "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/match/getProblemID",
-            { params: { ID } }
-          );
-          const { problemID } = res.data;
-          setPID(problemID);
         } catch (error) {
           console.error("Error fetching match:", error);
         }
@@ -166,15 +156,11 @@ const Round = () => {
         </span>
       </div>
 
-      {pID === "" ? (
-        <></>
-      ) : (
-        <div style={{ display: "flex", width: "100%" }}>
-          <div style={{ flex: 1 }}>
-            <Problem problemId={pID} />
-          </div>
+      <div style={{ display: "flex", width: "100%" }}>
+        <div style={{ flex: 1 }}>
+          <Problem round_no={rnd} />
         </div>
-      )}
+      </div>
     </div>
   );
 };
